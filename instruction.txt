@@ -1,0 +1,10 @@
+To start using:
+
+1. Add the create-block.js file to your project
+2. npm install fs-extra
+3. Add "scripts": {
+"create-block": "node create-block.js"
+} in package.json
+4. Run the script: npm run create-block file-name
+
+If the block does not appear in the admin, you must save block.json and the file in the place where you registered the block. My widget has functions.php
