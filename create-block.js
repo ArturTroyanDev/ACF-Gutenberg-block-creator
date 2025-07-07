@@ -20,11 +20,12 @@ function createBlockStructure(blockName) {
   // Create block.json
   const blockJsonContent = {
     name: `acf/${blockName}`,
-    title: `${blockName}`,
-    description: `${blockName}`,
+    title: `${splitWords(blockName)}`,
+    description: `${splitWords(blockName)}`,
+    category: "Primary",
     icon: "admin-post",
     align: "full",
-    keywords: [`${blockName}`],
+    keywords: [`${splitWords(blockName)}`],
     acf: {
       mode: "edit",
       renderTemplate: `${blockName}.php`,
@@ -130,6 +131,20 @@ function toPascalCase(fileName) {
     return element[0].toUpperCase() + element.slice(1);
   });
   return `"${arr.join("")}"`
+}
+function toPascalCase(fileName) {
+  const words = blockName.split("-");
+  const arr = words.map((element) => {
+    return element[0].toUpperCase() + element.slice(1);
+  });
+  return `"${arr.join("")}"`;
+}
+function splitWords(fileName) {
+  const words = blockName.split("-");
+  const arr = words.map((element) => {
+    return element[0].toUpperCase() + element.slice(1);
+  });
+  return arr.join(" ");
 }
 
 // Get block name from command line argument
