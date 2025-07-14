@@ -6,6 +6,7 @@
 // make this script check if such a directory is alredy exist. Or ask: "U sure u wanna rewrite the files?"
 // make autosave for files changed by this script files like a function.php 
 // Make it write properly values in block.json. For example value for property title should be in capital letters
+// if there is no func where we have to register blocks create it
 
 
 

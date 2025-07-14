@@ -68,13 +68,16 @@ function createBlockStructure(blockName) {
 		$id = $block["anchor"];
 	}
 
-	$className = ${toPascalCase(blockName)};
+	$className = ${blockName};
 	if (!empty($block["className"])) {
 		$className .= " " . $block["className"];
 	}
+  
+  $unique_id = uniqid("${blockName}-");
 ?>
 
-<section id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className); ?>" >
+
+<section data-unique-id="<?php echo $unique_id; ?>" id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className); ?>" >
 	<div class="container">
 
   </div>
@@ -132,13 +135,7 @@ function toPascalCase(fileName) {
   });
   return `"${arr.join("")}"`
 }
-function toPascalCase(fileName) {
-  const words = blockName.split("-");
-  const arr = words.map((element) => {
-    return element[0].toUpperCase() + element.slice(1);
-  });
-  return `"${arr.join("")}"`;
-}
+
 function splitWords(fileName) {
   const words = blockName.split("-");
   const arr = words.map((element) => {
