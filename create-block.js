@@ -90,7 +90,7 @@ function createBlockStructure(blockName) {
   );
 
   // Append import to the _blocks.scss
-  const importStatement = `@import "${blockName}/${blockName}";\n`;
+  const importStatement = `@import "${blockName}";\n`;
   fs.appendFileSync(globalScssPath, importStatement);
   
   const registerLine = `register_block_type(get_template_directory() . '/template-parts/blocks/${blockName}/block.json' );\n`;
