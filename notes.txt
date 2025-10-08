@@ -1,3 +1,13 @@
+1. Choise to use pascalcase or BEM
+2. Choise the path for creating a php folder of the block and scss file. Maybe it will be convinintent just 
+set values in create-block.js. Like paths, structure etc
+
+
+
+
+
+
+
 // що б трохи прискорити процес розробки написав невеликий скрипт для автоматизації рутинного створення папок з файлами 
 // в /template-parts/blocks, 
 // /sass/blocks, 
@@ -7,7 +17,8 @@
 // make autosave for files changed by this script files like a function.php 
 // Make it write properly values in block.json. For example value for property title should be in capital letters
 // if there is no func where we have to register blocks create it
-
+// make it to ask where to register func and scss
+// make possibility to enable including data-unique id
 
 
 

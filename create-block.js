@@ -7,7 +7,6 @@ function createBlockStructure(blockName) {
   const scssDir = path.join(__dirname, "sass", "blocks", blockName);
   const globalScssPath = path.join(__dirname, "sass", "blocks", "_blocks.scss");
   const functionsPath = path.join(__dirname, "functions.php");
-
   if (fs.existsSync(blockDir)) {
     console.log(`Block "${blockName}" already exists at ${blockDir}`);
     return;
@@ -25,7 +24,7 @@ function createBlockStructure(blockName) {
     category: "Primary",
     icon: "admin-post",
     align: "full",
-    keywords: [`${splitWords(blockName)}`],
+    keywords: [],
     acf: {
       mode: "edit",
       renderTemplate: `${blockName}.php`,
@@ -72,12 +71,10 @@ function createBlockStructure(blockName) {
 	if (!empty($block["className"])) {
 		$className .= " " . $block["className"];
 	}
-  
-  $unique_id = uniqid("${blockName}-");
 ?>
 
 
-<section data-unique-id="<?php echo $unique_id; ?>" id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className); ?>" >
+<section id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className); ?>" >
 	<div class="container">
 
   </div>
@@ -103,7 +100,9 @@ function createBlockStructure(blockName) {
     const registerLine = `  register_block_type(get_template_directory() . '/template-parts/blocks/${blockName}/block.json' );\n`;
 
     const fnStartIdx = fnContent.indexOf("function my_acf_blocks_init");
+    
     if (fnStartIdx !== -1 && !fnContent.includes(registerLine.trim())) {
+
       // find the opening brace of the function
       const openBraceIdx = fnContent.indexOf("{", fnStartIdx);
       // walk the file, counting braces to find the matching closing one
